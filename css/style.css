@@ -32,6 +32,14 @@ h2 {
     font-weight: 900;
 }
 
+.newsletterbg {
+    background-color: #f9fafb;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-top: 15px;
+    border-top: 2px solid #2d3945;
+}
+
 .form-header h2 {
     margin-bottom: 10px;
 }
@@ -44,11 +52,10 @@ header {
     background-color: #2d3945;
     padding-top: 25px;
     padding-bottom: 25px;
-    margin: none;
 }
 
 footer {
-    margin-top: 25px;
+    margin-top: 10px;
     margin-bottom: 200px;
 }
 
@@ -107,12 +114,21 @@ textarea {
     color: #a8adb2;
     border-radius: 5px;
     margin: 0 0 20px;
+    font-size: 16px;
+    font-family: 'Merriweather', serif;
+    font-weight: 300;
+    padding: 15px 20px;
 }
 
 .button {
     width: 100%;
     margin: 0 auto;
     display: block;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #617383;
 }
 
 .button-div {
@@ -145,6 +161,16 @@ select {
     border-radius: 5px;
     height: 50px;
     margin: 20px 0;
+    text-indent: 20px;
+    font-size: 16px;
+    font-family: 'Merriweather', serif;
+    font-weight: 300;
+}
+
+
+input[type="checkbox"]:checked + label,
+input[type="radio"]:checked + label {
+  font-weight: 900;
 }
 
 button {
@@ -163,10 +189,6 @@ label[for="other"] {
 }
 
 
-.single-border {
-    margin: 15px 12px;
-    border-top: 2px solid #2d3945;
-}
 
 .double-border {
     margin: 15px 12px;
@@ -175,7 +197,14 @@ label[for="other"] {
     height: 9px;
 }
 
-::placeholder {
+input:not([placeholder="Required"])::placeholder {
+    text-align: left;
+    font-size: 16px;
+    font-family: 'Merriweather', serif;
+}
+
+
+input[placeholder="Required"]::placeholder {
     text-align: right;
     padding-right: 20px;
     font-style: italic;
@@ -186,13 +215,24 @@ label[for="other"] {
 }
 
 
+input:focus,
+select:focus,
+textarea:focus {
+    border: 2px solid #617383;
+    outline: none;
+    box-shadow: 0 4px 7px #2d3945;
+    transition: .5s;
+}
+
+
 /*Media Queries*/
 
 @media (min-width: 768px) {
     
     main {
-        max-width: 600px;
+        width: 65%;
         margin: 0 auto;
+        max-width: 650px;
     }
     
     .form-header {
@@ -204,22 +244,52 @@ label[for="other"] {
         font-size: 24px;
     }
     
-    .single-border {
-    margin: 30px 12px;
+    
+    .newsletterbg {
+        padding-top: 40px;
+        margin-top: 30px;
+        border-radius: 0 0 10px 10px;
     }
     
     footer {
         margin-top: 35px;
     }
     
-    .button {
-        width: 576px;
-    }
     
     label {
     font-weight: 600;
 }
     
+    .contact-flex {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    
+    
+    .contact-flex label {
+        width: 20%;
+        margin-right: auto;
+    }
+    
+    #zip {
+        width: 25%;
+        margin-right: 50%;
+    }
+    
+    #zip-label {
+    }
+    
+    input:not([type="checkbox"]):not([type="radio"]):not([id="zip"]),
+    #state {
+        width: 75%;
+    }
+    
+    .news-format {
+        margin-top: 25px;
+    }
     
     
 }
